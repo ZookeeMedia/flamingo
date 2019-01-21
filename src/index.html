@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Test">
+  <meta name="author" content="Conway Hyacienth">
+  <title>Test</title>
+  <link href="https://fonts.googleapis.com/css?family=Pacifico|Staatliches|Rambla" rel="stylesheet">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/ScrollMagic.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/animation.gsap.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/debug.addIndicators.js"></script>
+  <script src="js/app.js"></script>
+</head>
+
+<body>
+  <style type="text/css">
+    .gd3ani {
+      transform: rotate(0deg) translateX(-300px);
+    }
+
+    .gd4ani {
+      transform: translateX(-200px) rotate(45deg);
+    }
+
+    .gd4whiteani {
+      transform: translateY(-241px);
+    }
+
+    .pcani {
+      transform: translateX(200px) rotate(90deg);
+    }
+
+    .bbani {
+      transform: translateY(230px) translateX(230px) scale(2.2,2.2);
+    }
+
+    .dpani {
+      transform: scale(2.2,2.2);
+    }
+
+    .gd5ani {
+      transform: translateX(-200px) rotate(45deg);
+    }
+  </style>
+  <main class="container">
+    <div class="wrapper">
+      <section class="section parrots parallax parrots-bg">
+        <div id="trigger3" class="spacer s0"></div>
+
+        <article class="article">
+          <h2>A warm welcome&nbsp;&nbsp;</h2>
+          <h1>This Reserves enables the developement of various species of endangered birds thoughout south east asia</h1>
+        </article>
+
+        <div class="green-diamond gd1"></div>
+        <div class="green-diamond gd2"></div>
+        <div class="green-diamond gd3"></div>
+
+      </section>
+      <section class="section shapes">
+        <div id="trigger2" class="spacer s0"></div>
+        <div class="patterned-circle pc"></div>
+        <article class="article">
+          <h2>Thirsty for more?&nbsp;&nbsp;</h2>
+          <h1>Become a guardian of wildlife and gain access to exclusive content, news and releases</h1>
+          <form>
+
+            <div class="form-group">
+              <label class="form-label" for="email">Enter your email address</label>
+              <input id="email" type="email" class="form-input" type="text" />
+            </div>
+
+            <div class="btn-container">
+              <button class="button">
+                <div class="alt-bg"></div>
+                <div class="gloss"></div>
+                <span class="txt">&nbsp; </span>
+                <span class="chevron">&nbsp;</span>
+              </button>
+            </div>
+
+          </form>
+        </article>
+        <aside>
+          <!--<img src="/assets/flamingo-image.png" />-->
+          
+          <div class="bigblue bb"></div>
+          <div class="dotted-pattern dp"></div>
+          <div class="carousel">
+            <img class="pic" src="/assets/flamingo-image.png" />
+            <div class="scroll-left-btn"></div>
+            <div class="scroll-right-btn"></div>
+          </div>
+        </aside>
+
+        <div class="green-diamond2 gd4"></div>
+        <div class="green-diamond2 gd4white"></div>
+        <div class="green-diamond2 gd5"></div>
+        <div class="green-diamond2 gd6"></div>
+
+        <div class="webdev"></div>
+      </section>
+
+      <section class="section feathers parallax feathers-bg">
+        <div id="trigger1" class="spacer s0"></div>
+
+        <article class="article">
+          <h1>Together we can give nature the home it needs</h1>
+          <h2>Our record of success suggests we are doing many of the right things in the right way. but we take
+            nothing for granted. Conservation is rarely straightforward and is becoming ever more demanding.
+            Find
+            out what we're doing and how we're doing it</h2>
+        </article>
+
+        <div class="green-diamond2 gd7"></div>
+        <div class="green-diamond2 gd8"></div>
+        <div class="green-diamond2 gd9"></div>
+
+      </section>
+    </div>
+  </main>
+
+  <script>
+
+    $(window).bind("load", function () {
+
+      $('input, .form-label').focus(function () {
+        $(this).parents('.form-group').addClass('focused');
+      });
+
+      $(document).on('click', '.form-label', function () {
+        $(this).parents('.form-group').addClass('focused');
+        $('input#email').focus();
+      });
+
+      $('input').blur(function () {
+        var inputValue = $(this).val();
+        if (inputValue == "") {
+          $(this).removeClass('filled');
+          $(this).parents('.form-group').removeClass('focused');
+        } else {
+          $(this).addClass('filled');
+        }
+      });
+
+      function typeWriter() {
+        if (i < txt.length) {
+          document.getElementById("demo").innerHTML += txt.charAt(i);
+          i++;
+          setTimeout(typeWriter, speed);
+        }
+      }
+      // need trigger mechanism to call this function and updating the 'txt' variable each time
+
+
+    });
+
+    // build tween
+    let tween1 = TweenMax.to(".gd1", 1, { className: "+=gd3ani" });
+    let tween2 = TweenMax.to(".gd2", 1, { className: "+=gd3ani" });
+    let tween3 = TweenMax.to(".gd3", 1, { className: "+=gd3ani" });
+    let tween4 = TweenMax.to(".gd4", 1, { className: "+=gd4ani" });
+    let tweenpc = TweenMax.to(".pc", 1, { className: "+=pcani" });
+    let tweenbb = TweenMax.to(".bb", 1, { className: "+=bbani" });
+    let tweendp = TweenMax.to(".dp", 1, { className: "+=dpani" });
+    let tween4white = TweenMax.to(".gd4white", 1, { className: "+=gd4whiteani" });
+    let tween5 = TweenMax.to(".gd5", 1, { className: "+=gd4ani" });
+    let tween6 = TweenMax.to(".gd6", 1, { className: "+=gd4ani" });
+    let tween7 = TweenMax.to(".gd7", 1, { className: "+=gd5ani" });
+    let tween8 = TweenMax.to(".gd8", 1, { className: "+=gd5ani" });
+    let tween9 = TweenMax.to(".gd9", 1, { className: "+=gd5ani" });
+
+    // build scene
+    // section 1 animation
+    let scene3 = new ScrollMagic.Scene({ triggerElement: "#trigger3", duration: 800, offset: -50 })
+      .setTween(tween3)
+      //.addIndicators({name: "tween3 css class"}) // add indicators (requires plugin)
+      .addTo(controller);
+
+    let scene2 = new ScrollMagic.Scene({ triggerElement: "#trigger3", duration: 800, offset: -50 })
+      .setTween(tween2)
+      //.addIndicators({name: "tween3 css class"}) // add indicators (requires plugin)
+      .addTo(controller);
+
+    let scene1 = new ScrollMagic.Scene({ triggerElement: "#trigger3", duration: 800, offset: -50 })
+      .setTween(tween1)
+      //.addIndicators({name: "tween3 css class"}) // add indicators (requires plugin)
+      .addTo(controller);
+
+    //tweenpc
+    // section 2 animation
+    let scene4pc = new ScrollMagic.Scene({ triggerElement: "#trigger2", duration: 400, offset: 120 })
+      .setTween(tweenpc)
+      //.addIndicators({name: "tweenpc css class"}) // add indicators (requires plugin)
+      .addTo(controller);
+
+    // section 2 animation
+    let scene4 = new ScrollMagic.Scene({ triggerElement: "#trigger2", duration: 400, offset: 120 })
+      .setTween(tween4)
+      //.addIndicators({name: "tween4 css class"}) // add indicators (requires plugin)
+      .addTo(controller);
+
+    // section 2 animation
+    let scene4white = new ScrollMagic.Scene({ triggerElement: "#trigger2", duration: 400, offset: 120 })
+      .setTween(tween4white)
+      //.addIndicators({name: "tween4 css class"}) // add indicators (requires plugin)
+      .addTo(controller);
+    
+    //tweenbb
+    let scene4bb = new ScrollMagic.Scene({ triggerElement: "#trigger2", duration: 400, offset: 120 })
+      .setTween(tweenbb)
+      //.addIndicators({name: "tweenbb css class"}) // add indicators (requires plugin)
+      .addTo(controller);
+    
+    //tweendp
+    let scene4dp = new ScrollMagic.Scene({ triggerElement: "#trigger2", duration: 400, offset: 120 })
+      .setTween(tweendp)
+      //.addIndicators({name: "tweenbb css class"}) // add indicators (requires plugin)
+      .addTo(controller);
+
+    let scene5 = new ScrollMagic.Scene({ triggerElement: "#trigger2", duration: 400, offset: 120 })
+      .setTween(tween5)
+      //.addIndicators({name: "tween5 css class"}) // add indicators (requires plugin)
+      .addTo(controller);
+
+    let scene6 = new ScrollMagic.Scene({ triggerElement: "#trigger2", duration: 400, offset: 120 })
+      .setTween(tween6)
+      //.addIndicators({name: "tween6 css class"}) // add indicators (requires plugin)
+      .addTo(controller);
+
+    // section 3 animation
+    let scene7 = new ScrollMagic.Scene({ triggerElement: "#trigger1", duration: 400, offset: 0 })
+      .setTween(tween7)
+      //.addIndicators({name: "trigger1"}) // add indicators (requires plugin)
+      .addTo(controller);
+
+    let scene8 = new ScrollMagic.Scene({ triggerElement: "#trigger1", duration: 400, offset: 0 })
+      .setTween(tween8)
+      //.addIndicators({name: "trigger1"}) // add indicators (requires plugin)
+      .addTo(controller);
+
+    let scene9 = new ScrollMagic.Scene({ triggerElement: "#trigger1", duration: 400, offset: 0 })
+      .setTween(tween9)
+      // .addIndicators({name: "trigger1"}) // add indicators (requires plugin)
+      .addTo(controller);
+
+  </script>
+</body>
