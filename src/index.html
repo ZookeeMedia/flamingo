@@ -54,9 +54,8 @@
         <div id="trigger3" class="spacer s0"></div>
 
         <article class="article">
-          <h2 class="welcome">A warm welcome&nbsp;&nbsp;</h2>
-          <h1 class="welcome-msg">This Reserves enables the developement of various species of endangered birds
-            thoughout south east asia</h1>
+          <h2 id="welcome"></h2>
+          <h1 id="welcome-msg"></h1>
         </article>
 
         <div class="green-diamond gd1"></div>
@@ -70,8 +69,8 @@
         <div id="trigger2" class="spacer s0"></div>
         <div class="patterned-circle pc"></div>
         <article class="article">
-          <h2 class="form-title">Thirsty for more?&nbsp;&nbsp;</h2>
-          <h1 class="form-msg">Become a guardian of wildlife and gain access to exclusive content, news and releases</h1>
+          <h2 id="form-title"></h2>
+          <h1 id="form-msg"></h1>
           <form>
 
             <div class="form-group">
@@ -114,12 +113,8 @@
         <div id="trigger1" class="spacer s0"></div>
 
         <article class="article">
-          <h1 class="feathers-title">Together we can give nature the home it needs</h1>
-          <h2 class="feathers-msg">Our record of success suggests we are doing many of the right things in the right
-            way. but we take
-            nothing for granted. Conservation is rarely straightforward and is becoming ever more demanding.
-            Find
-            out what we're doing and how we're doing it</h2>
+          <h1 id="feathers-title"></h1>
+          <h2 id="feathers-msg"></h2>
         </article>
         <div id="form-trigger"></div>
 
@@ -155,7 +150,7 @@
         }
       });
 
-      let txt = '';
+      //let txt = '';
       let txtArray = [
         {
           el: "welcome",
@@ -167,7 +162,7 @@
         },
         {
           el: "form-title",
-          content: "Thirsty for more?"
+          content: "Thirsty for more? &nbsp;&nbsp;"
         },
         {
           el: "form-msg",
@@ -183,21 +178,36 @@
         },
       ]
 
-      function typeWriter() {
-        if (i < txt.length) {
-          document.getElementById(el).innerHTML += txt.charAt(i);
-          i++;
-          setTimeout(typeWriter, speed);
-        }
-      }
       // need trigger mechanism to call this function and updating the 'txt' variable each time
-
-      //let form_trigger = true;
+      let el ='';
+      let txt = '';
+      let headel ='';
+      let headtxt = '';
       let parrot_trigger = true;
       let form_trigger = true;
       let feather_trigger = true;
+
+      let i = 0;
+      let ii = 0;
+      let speed = 25; /* The speed/duration of the effect in milliseconds */
+
+      function headerWriter() {
+        if (i < txt.length) {
+          document.getElementById(headel).innerHTML += headtxt.charAt(i);
+          i++;
+          setTimeout(headerWriter, speed);
+        }
+      }
+
+      function msgWriter() {
+        if (ii < txt.length) {
+          document.getElementById(el).innerHTML += txt.charAt(i);
+          ii++;
+          setTimeout(msgWriter, speed);
+        }
+      }      
+
       $('main.container').scroll(function () {
-        // console.log('scrollin');
         var parrot_hT = $('#parrot-trigger').offset().top,
           parrot_hH = $('#parrot-trigger').outerHeight(),
           form_hT = $('#form-trigger').offset().top,
@@ -208,18 +218,41 @@
           wS = $(this).scrollTop();
         if (wS > (parrot_hT + parrot_hH - wH) && parrot_trigger) {
           parrot_trigger = false;
+          headel = txtArray[0].el;
+          headtxt = txtArray[0].content;
+          el = txtArray[1].el;
+          txt = txtArray[1].content;
+          i = 0;
+          ii = 0;
+          headerWriter();
+          msgWriter();
           console.log('Parrot text');
         }
         if (wS > (form_hT + form_hH - wH) && form_trigger) {
           form_trigger = false;
+          headel = txtArray[2].el;
+          headtxt = txtArray[2].content;
+          el = txtArray[3].el;
+          txt = txtArray[3].content;
+          i = 0;
+          ii = 0;
+          headerWriter();
+          msgWriter();
           console.log('Form text');
         }
         if (wS > (feather_hT + feather_hH - wH + 850) && feather_trigger) {
           feather_trigger = false;
+          headel = txtArray[4].el;
+          headtxt = txtArray[4].content;
+          el = txtArray[5].el;
+          txt = txtArray[5].content;
+          i = 0;
+          ii = 0;
+          headerWriter();
+          msgWriter();
           console.log('Feather text');
         }
       });
-
 
     });
 
