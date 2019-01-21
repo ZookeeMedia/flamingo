@@ -189,8 +189,8 @@
       }
       // need trigger mechanism to call this function and updating the 'txt' variable each time
 
-      $(window).scroll(function () {
-        console.log('scrollin');
+      $('main.container').scroll(function () {
+        // console.log('scrollin');
         var parrot_hT = $('#trigger3').offset().top,
           parrot_hH = $('#trigger3').outerHeight(),
           form_hT = $('#trigger2').offset().top,
@@ -200,7 +200,7 @@
           wH = $(window).height(),
           wS = $(this).scrollTop();
         if (wS > (parrot_hT + parrot_hH - wH)) {
-          console.log('Feather text');
+          console.log('Parrot text');
         }
         if (wS > (form_hT + form_hH - wH)) {
           console.log('Form text');
