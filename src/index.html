@@ -36,11 +36,11 @@
     }
 
     .bbani {
-      transform: translateY(230px) translateX(230px) scale(2.2,2.2);
+      transform: translateY(230px) translateX(230px) scale(2.2, 2.2);
     }
 
     .dpani {
-      transform: scale(2.2,2.2);
+      transform: scale(2.2, 2.2);
     }
 
     .gd5ani {
@@ -53,8 +53,9 @@
         <div id="trigger3" class="spacer s0"></div>
 
         <article class="article">
-          <h2>A warm welcome&nbsp;&nbsp;</h2>
-          <h1>This Reserves enables the developement of various species of endangered birds thoughout south east asia</h1>
+          <h2 class="welcome">A warm welcome&nbsp;&nbsp;</h2>
+          <h1 class="welcome-msg">This Reserves enables the developement of various species of endangered birds
+            thoughout south east asia</h1>
         </article>
 
         <div class="green-diamond gd1"></div>
@@ -68,8 +69,8 @@
         <div id="trigger2" class="spacer s0"></div>
         <div class="patterned-circle pc"></div>
         <article class="article">
-          <h2>Thirsty for more?&nbsp;&nbsp;</h2>
-          <h1>Become a guardian of wildlife and gain access to exclusive content, news and releases</h1>
+          <h2 class="form-title">Thirsty for more?&nbsp;&nbsp;</h2>
+          <h1 class="form-msg">Become a guardian of wildlife and gain access to exclusive content, news and releases</h1>
           <form>
 
             <div class="form-group">
@@ -90,7 +91,7 @@
         </article>
         <aside>
           <!--<img src="/assets/flamingo-image.png" />-->
-          
+
           <div class="bigblue bb"></div>
           <div class="dotted-pattern dp"></div>
           <div class="carousel">
@@ -112,8 +113,9 @@
         <div id="trigger1" class="spacer s0"></div>
 
         <article class="article">
-          <h1>Together we can give nature the home it needs</h1>
-          <h2>Our record of success suggests we are doing many of the right things in the right way. but we take
+          <h1 class="feathers-title">Together we can give nature the home it needs</h1>
+          <h2 class="feathers-msg">Our record of success suggests we are doing many of the right things in the right
+            way. but we take
             nothing for granted. Conservation is rarely straightforward and is becoming ever more demanding.
             Find
             out what we're doing and how we're doing it</h2>
@@ -153,39 +155,60 @@
       let txt = '';
       let txtArray = [
         {
-          el : "welcome",
-          content : "A warm welcome"
+          el: "welcome",
+          content: "A warm welcome"
         },
         {
-          el : "welcome-msg",
-          content : "This Reserves enables the developement of various species of endangered birds thoughout south east asia"
+          el: "welcome-msg",
+          content: "This Reserves enables the developement of various species of endangered birds thoughout south east asia"
         },
         {
-          el : "form-title",
-          content : "Thirsty for more?"
+          el: "form-title",
+          content: "Thirsty for more?"
         },
         {
-          el : "form-msg",
-          content : "Become a guardian of wildlife and gain access to exclusive content, news and releases"
+          el: "form-msg",
+          content: "Become a guardian of wildlife and gain access to exclusive content, news and releases"
         },
         {
-          el : "feathers-title",
-          content : "together we can give nature the home it needs"
+          el: "feathers-title",
+          content: "together we can give nature the home it needs"
         },
         {
-          el : "feathers-msg",
-          content : "Our record of success suggests we are doing many of the right things in the right way. but we take nothing for granted. Conservation is rarely straightforward and is becoming ever more demanding. Find out what we're doing and how we're doing it"
+          el: "feathers-msg",
+          content: "Our record of success suggests we are doing many of the right things in the right way. but we take nothing for granted. Conservation is rarely straightforward and is becoming ever more demanding. Find out what we're doing and how we're doing it"
         },
       ]
 
       function typeWriter() {
         if (i < txt.length) {
-          document.getElementById("demo").innerHTML += txt.charAt(i);
+          document.getElementById(el).innerHTML += txt.charAt(i);
           i++;
           setTimeout(typeWriter, speed);
         }
       }
       // need trigger mechanism to call this function and updating the 'txt' variable each time
+
+      $(window).scroll(function () {
+        console.log('scrollin');
+        var parrot_hT = $('#trigger3').offset().top,
+          parrot_hH = $('#trigger3').outerHeight(),
+          form_hT = $('#trigger2').offset().top,
+          form_hH = $('#trigger2').outerHeight(),
+          feather_hT = $('#trigger1').offset().top,
+          feather_hH = $('#trigger1').outerHeight(),
+          wH = $(window).height(),
+          wS = $(this).scrollTop();
+        if (wS > (parrot_hT + parrot_hH - wH)) {
+          console.log('Feather text');
+        }
+        if (wS > (form_hT + form_hH - wH)) {
+          console.log('Form text');
+        }
+        if (wS > (feather_hT + feather_hH - wH)) {
+          console.log('Feather text');
+        }
+      });
 
 
     });
@@ -240,13 +263,13 @@
       .setTween(tween4white)
       //.addIndicators({name: "tween4 css class"}) // add indicators (requires plugin)
       .addTo(controller);
-    
+
     //tweenbb
     let scene4bb = new ScrollMagic.Scene({ triggerElement: "#trigger2", duration: 400, offset: 120 })
       .setTween(tweenbb)
       //.addIndicators({name: "tweenbb css class"}) // add indicators (requires plugin)
       .addTo(controller);
-    
+
     //tweendp
     let scene4dp = new ScrollMagic.Scene({ triggerElement: "#trigger2", duration: 400, offset: 120 })
       .setTween(tweendp)
