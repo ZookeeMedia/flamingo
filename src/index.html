@@ -207,6 +207,16 @@
         }
       }      
 
+      headel = txtArray[0].el;
+      headtxt = txtArray[0].content;
+      el = txtArray[1].el;
+      txt = txtArray[1].content;
+      i = 0;
+      ii = 0;
+      headerWriter();
+      msgWriter();
+      parrot_trigger = false;
+
       $('main.container').scroll(function () {
         var parrot_hT = $('#parrot-trigger').offset().top,
           parrot_hH = $('#parrot-trigger').outerHeight(),
@@ -216,7 +226,7 @@
           feather_hH = $('#feather-trigger').outerHeight(),
           wH = $(window).height(),
           wS = $(this).scrollTop();
-        if (wS > (parrot_hT + parrot_hH - wH) && parrot_trigger) {
+        if (parrot_trigger) {
           parrot_trigger = false;
           headel = txtArray[0].el;
           headtxt = txtArray[0].content;
