@@ -12,7 +12,7 @@
     "start": "webpack --config webpack.config.prod.js && http-server ./dist -o"
   },
   "repository": {
-    "type": "git",
+    "type": "git"
     
   },
   "author": "erick zhao",
