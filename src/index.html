@@ -150,6 +150,34 @@
         }
       });
 
+      let txt = '';
+      let txtArray = [
+        {
+          el : "welcome",
+          content : "A warm welcome"
+        },
+        {
+          el : "welcome-msg",
+          content : "This Reserves enables the developement of various species of endangered birds thoughout south east asia"
+        },
+        {
+          el : "form-title",
+          content : "Thirsty for more?"
+        },
+        {
+          el : "form-msg",
+          content : "Become a guardian of wildlife and gain access to exclusive content, news and releases"
+        },
+        {
+          el : "feathers-title",
+          content : "together we can give nature the home it needs"
+        },
+        {
+          el : "feathers-msg",
+          content : "Our record of success suggests we are doing many of the right things in the right way. but we take nothing for granted. Conservation is rarely straightforward and is becoming ever more demanding. Find out what we're doing and how we're doing it"
+        },
+      ]
+
       function typeWriter() {
         if (i < txt.length) {
           document.getElementById("demo").innerHTML += txt.charAt(i);
